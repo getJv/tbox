@@ -1,0 +1,40 @@
+# Lefthook configuration
+# Refer: https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+skip_output:
+  - meta
+  - summary
+  - skips
+  - success
+  - execution
+  - concurrency
+
+skip_empty: true
+
+pre-commit:
+  parallel: true
+  commands:
+    fmt:
+      glob: "*.go"
+      run: go fmt {staged_files} && git add {staged_files}
+    test:
+      run: go test -v ./...
+
+commit-msg:
+  commands:
+    lint:
+      run: |
+        FILE={1}
+        TITLE=$(head -n 1 "$FILE")
+        if ! echo "$TITLE" | grep -iqE "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?(!|: )"; then
+          echo "ERROR: Commit message does not follow Conventional Commits standard."
+          echo "Your title: '$TITLE'"
+          echo "Valid examples: 'feat: add login', 'fix(api): connection leak'"
+          exit 1
+        fi
+
+        if [ ${#TITLE} -gt 50 ]; then
+          echo "ERROR: Commit message title is too long (${#TITLE} characters). Max 50."
+          exit 1
+        fi
+
