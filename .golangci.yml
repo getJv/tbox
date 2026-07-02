@@ -1,18 +1,22 @@
+version: "2"
+
 run:
   timeout: 5m
   modules-download-mode: readonly
   go: '1.25' # Go version to use
 
 linters:
-  disable-all: true
+  default: none
   enable:
     - errcheck     # Ensures all returned errors are handled
-    - gosimple     # Suggests code simplifications for Go
     - govet        # Official Go tool for analyzing common bugs
     - ineffassign  # Detects variable assignments that are never used
-    - staticcheck  # Applies robust static analysis rules (the best Go linter)
+    - staticcheck  # Applies robust static analysis rules (includes gosimple)
     - unused       # Finds functions, structs, or variables that are created but not used
     - misspell     # Searches for misspelled English words in comments/strings
+
+formatters:
+  enable:
     - gofmt        # Ensures the code follows standard formatting
 
 issues:
