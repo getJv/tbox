@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/getJv/tbox/compare/v1.0.0...v1.0.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **release:** force patch release 1.0.1 ([1a76817](https://github.com/getJv/tbox/commit/1a7681742b7d8d98fe743f257051b02e9e0e63ea))
+
 ## 1.0.0 (2026-07-05)
 
 
