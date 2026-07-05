@@ -16,7 +16,7 @@ pre-commit:
   commands:
     fmt:
       glob: "*.go"
-      run: go fmt {staged_files} && git add {staged_files}
+      run: gofmt -w {staged_files} && git add {staged_files}
     test:
       run: go test -v ./...
 
