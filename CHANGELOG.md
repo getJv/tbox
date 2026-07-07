@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/getJv/tbox/compare/v1.0.0...v1.1.0) (2026-07-07)
+
+
+### Features
+
+* **logger:** add GooseAdapter ([2b029f1](https://github.com/getJv/tbox/commit/2b029f1c75521145187cc8ddbccc797b840b5ef0))
+
+
+### Bug Fixes
+
+* **release:** force patch release 1.0.1 ([1a76817](https://github.com/getJv/tbox/commit/1a7681742b7d8d98fe743f257051b02e9e0e63ea))
+
 ## 1.0.0 (2026-07-05)
 
 
