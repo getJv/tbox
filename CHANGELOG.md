@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/getJv/tbox/compare/v1.1.0...v1.2.0) (2026-07-09)
+
+
+### Features
+
+* **qworker:** Add SQLite-backed job queue ([2481c0e](https://github.com/getJv/tbox/commit/2481c0eaf9b90b4a3ad961a7712706e61496af39))
+
 ## [1.1.0](https://github.com/getJv/tbox/compare/v1.0.0...v1.1.0) (2026-07-07)
 
 
