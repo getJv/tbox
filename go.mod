@@ -7,8 +7,12 @@ tool github.com/evilmartians/lefthook
 require github.com/evilmartians/lefthook v1.13.6 // indirect
 
 require (
+	github.com/joho/godotenv v1.5.1
+	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/natefinch/lumberjack v2.0.0+incompatible
+	github.com/pressly/goose/v3 v3.27.2
 	github.com/rs/zerolog v1.35.1
+	github.com/stretchr/testify v1.11.1
 	golang.org/x/sync v0.21.0
 )
 
@@ -24,6 +28,7 @@ require (
 	github.com/charmbracelet/x/cellbuf v0.0.13-0.20250311204145-2c3ea96c31dd // indirect
 	github.com/charmbracelet/x/term v0.2.1 // indirect
 	github.com/creack/pty v1.1.24 // indirect
+	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.10-rc1 // indirect
 	github.com/go-json-experiment/json v0.0.0-20250910080747-cc2cfa0554c3 // indirect
@@ -54,7 +59,7 @@ require (
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/pressly/goose/v3 v3.27.2 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/schollz/progressbar/v3 v3.18.0 // indirect
 	github.com/sethvargo/go-retry v0.3.0 // indirect
@@ -64,7 +69,6 @@ require (
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/exp v0.0.0-20260410095643-746e56fc9e2f // indirect
 	golang.org/x/mod v0.35.0 // indirect
 	golang.org/x/sys v0.45.0 // indirect
 	golang.org/x/term v0.28.0 // indirect
