@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/getJv/tbox/compare/v1.3.0...v1.3.1) (2026-07-11)
+
+
+### Bug Fixes
+
+* Add missing deps and lint fixes ([72f82a8](https://github.com/getJv/tbox/commit/72f82a82095c7d1112ce4d3d08a5aa0fff81e51e))
+
 ## [1.3.0](https://github.com/getJv/tbox/compare/v1.2.0...v1.3.0) (2026-07-11)
 
 
