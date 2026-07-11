@@ -1,6 +1,7 @@
 package qworkers
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 
@@ -34,7 +35,7 @@ func RunMigration(db *sql.DB, command string, args ...string) error {
 	}
 
 	// Executes the requested command on the package migrations
-	if err := goose.Run(command, db, ".", args...); err != nil {
+	if err := goose.RunContext(context.Background(), command, db, ".", args...); err != nil {
 		return fmt.Errorf("qworkers migration (%s): %w", command, err)
 	}
 

@@ -15,12 +15,12 @@ type ErrorResponse struct {
 func RespondWithError(w http.ResponseWriter, code int, message string) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	json.NewEncoder(w).Encode(ErrorResponse{Message: message})
+	_ = json.NewEncoder(w).Encode(ErrorResponse{Message: message})
 }
 
 // RespondWithJSON writes a JSON success response with the given status code and payload.
 func RespondWithJSON(w http.ResponseWriter, code int, payload any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	json.NewEncoder(w).Encode(payload)
+	_ = json.NewEncoder(w).Encode(payload)
 }
