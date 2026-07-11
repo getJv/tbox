@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/getJv/tbox/compare/v1.2.0...v1.3.0) (2026-07-11)
+
+
+### Features
+
+* **config:** add configuration package ([0f361de](https://github.com/getJv/tbox/commit/0f361de450ef650c906de83becafda3010cab04e))
+* **utils:** add utility functions ([95f27bd](https://github.com/getJv/tbox/commit/95f27bd599d2d8e89eeebb2cc6ee1fab6f25d362))
+
 ## [1.2.0](https://github.com/getJv/tbox/compare/v1.1.0...v1.2.0) (2026-07-09)
 
 
