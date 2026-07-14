@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Swagger UI</title>
-    <link rel="stylesheet" href="assets/swagger-ui.css" integrity="sha512-xMCEx1YGY9/YdKYbdQB0N6ZvxbjTT10OnbvJfDcnkxE0P3UjV0jqsK0yrzVGH1OCOdV7CYzCBiqLl+/7g8ZpRQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{.AssetsURL}}/swagger-ui.css" integrity="sha512-xMCEx1YGY9/YdKYbdQB0N6ZvxbjTT10OnbvJfDcnkxE0P3UjV0jqsK0yrzVGH1OCOdV7CYzCBiqLl+/7g8ZpRQ==" crossorigin="anonymous">
     <style>
       html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
       *, *:before, *:after { box-sizing: inherit; }
@@ -12,8 +12,8 @@
 </head>
 <body>
     <div id="swagger-ui"></div>
-    <script src="assets/swagger-ui-bundle.js" integrity="sha512-kno2yb8YpUmSvcghCxCil8pDPkZMVgK3FdZdt8nhTNqEr7Tz03TM/ap63nKTo9tHNV4OTxRzCtOftV3c9/5tkw==" crossorigin="anonymous"></script>
-    <script src="assets/swagger-ui-standalone-preset.js" integrity="sha512-H7SesVTj7lbn2iSqaUkLrl4Pyi74zOvqYm5hv3ViBxWmI5cS/JMo18KTG+F9muxCeomR4XxxTFGEzMuiSyX4wQ==" crossorigin="anonymous"></script>
+    <script src="{{.AssetsURL}}/swagger-ui-bundle.js" integrity="sha512-kno2yb8YpUmSvcghCxCil8pDPkZMVgK3FdZdt8nhTNqEr7Tz03TM/ap63nKTo9tHNV4OTxRzCtOftV3c9/5tkw==" crossorigin="anonymous"></script>
+    <script src="{{.AssetsURL}}/swagger-ui-standalone-preset.js" integrity="sha512-H7SesVTj7lbn2iSqaUkLrl4Pyi74zOvqYm5hv3ViBxWmI5cS/JMo18KTG+F9muxCeomR4XxxTFGEzMuiSyX4wQ==" crossorigin="anonymous"></script>
     <script>
     window.onload = function() {
       let ui
