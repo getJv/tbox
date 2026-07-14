@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/getJv/tbox/compare/v1.3.1...v1.4.0) (2026-07-14)
+
+
+### Features
+
+* **swagger:** add UI and registration pkg ([a00895c](https://github.com/getJv/tbox/commit/a00895c974183296ddf42fb3e74d669c53aa0b76))
+
 ## [1.3.1](https://github.com/getJv/tbox/compare/v1.3.0...v1.3.1) (2026-07-11)
 
 
