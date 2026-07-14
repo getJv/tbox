@@ -4,6 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"html/template"
+	"io/fs"
 	"net/http"
 	"path"
 	"strings"
@@ -69,8 +70,12 @@ func Register(mux Router, l zerolog.Logger, cfg Config) error {
 	if !strings.HasSuffix(assetPrefix, "/") {
 		assetPrefix += "/"
 	}
-	fs := http.FileServer(http.FS(assets))
-	mux.Get(assetPrefix+"*", http.StripPrefix(assetPrefix, fs).ServeHTTP)
+	subFS, err := fs.Sub(assets, "assets")
+	if err != nil {
+		return fmt.Errorf("failed to create sub filesystem for assets: %w", err)
+	}
+	fileServer := http.FileServer(http.FS(subFS))
+	mux.Get(assetPrefix+"*", http.StripPrefix(assetPrefix, fileServer).ServeHTTP)
 
 	l.Info().
 		Str("url", fmt.Sprintf("http://%s%s", cfg.Host, cfg.UIPath)).
