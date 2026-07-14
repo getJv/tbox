@@ -63,6 +63,7 @@ err := swagger.Register(s.mux, s.logger, swagger.Config{
     JSONPath: "/api/docs/swagger.json",    // URL path for the JSON spec
     FilePath: "backend/docs/swagger.json", // Local path to the generated JSON file
     Host:     s.cfg.Web.Address(),        // Host address for logging purposes
+    AssetsPath: "assets",                  // Optional: URL path segment for assets (defaults to "assets")
 })
 if err != nil {
     s.logger.Error().Err(err).Msg("Failed to register swagger")

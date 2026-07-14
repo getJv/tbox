@@ -6,7 +6,6 @@ import (
 	"html/template"
 	"io/fs"
 	"net/http"
-	"path"
 	"strings"
 
 	"github.com/rs/zerolog"
@@ -34,6 +33,8 @@ type Config struct {
 	FilePath string
 	// Host is the host address used for logging the full Swagger UI URL.
 	Host string
+	// AssetsPath is the URL path segment where the Swagger UI assets will be served (defaults to "assets").
+	AssetsPath string
 }
 
 // Register configures the provided router to serve Swagger UI and the OpenAPI JSON specification.
@@ -52,13 +53,33 @@ func Register(mux Router, l zerolog.Logger, cfg Config) error {
 		http.ServeFile(w, r, cfg.FilePath)
 	})
 
+	// Normalize UIPath to have a trailing slash for proper relative asset loading
+	uiPath := cfg.UIPath
+	if !strings.HasSuffix(uiPath, "/") {
+		uiPath += "/"
+	}
+
+	// Redirect UIPath without trailing slash to UIPath with trailing slash
+	uiPathNoSlash := strings.TrimSuffix(uiPath, "/")
+	if uiPathNoSlash != "" && uiPathNoSlash != cfg.JSONPath {
+		mux.Get(uiPathNoSlash, func(w http.ResponseWriter, r *http.Request) {
+			http.Redirect(w, r, uiPath, http.StatusMovedPermanently)
+		})
+	}
+
 	// Serve Swagger UI
-	mux.Get(cfg.UIPath, func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "text/html")
+	mux.Get(uiPath, func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		assetsURL := cfg.AssetsPath
+		if assetsURL == "" {
+			assetsURL = "assets"
+		}
 		data := struct {
-			JSONURL string
+			JSONURL   string
+			AssetsURL string
 		}{
-			JSONURL: cfg.JSONPath,
+			JSONURL:   cfg.JSONPath,
+			AssetsURL: assetsURL,
 		}
 		if err := tmpl.Execute(w, data); err != nil {
 			l.Error().Err(err).Msg("failed to execute swagger template")
@@ -66,10 +87,11 @@ func Register(mux Router, l zerolog.Logger, cfg Config) error {
 	})
 
 	// Serve assets
-	assetPrefix := path.Join(cfg.UIPath, "assets")
-	if !strings.HasSuffix(assetPrefix, "/") {
-		assetPrefix += "/"
+	assetsPath := cfg.AssetsPath
+	if assetsPath == "" {
+		assetsPath = "assets"
 	}
+	assetPrefix := uiPath + assetsPath + "/"
 	subFS, err := fs.Sub(assets, "assets")
 	if err != nil {
 		return fmt.Errorf("failed to create sub filesystem for assets: %w", err)
@@ -78,7 +100,7 @@ func Register(mux Router, l zerolog.Logger, cfg Config) error {
 	mux.Get(assetPrefix+"*", http.StripPrefix(assetPrefix, fileServer).ServeHTTP)
 
 	l.Info().
-		Str("url", fmt.Sprintf("http://%s%s", cfg.Host, cfg.UIPath)).
+		Str("url", fmt.Sprintf("http://%s%s", cfg.Host, uiPath)).
 		Msg("Swagger UI available at")
 
 	return nil
