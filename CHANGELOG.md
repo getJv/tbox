@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.1](https://github.com/getJv/tbox/compare/v1.4.0...v1.4.1) (2026-07-14)
+
+
+### Bug Fixes
+
+* **swagger:** add asset handling and tests ([f4a7782](https://github.com/getJv/tbox/commit/f4a7782283b3fc847cf661685da23b3236b70dfe))
+* **swagger:** Add custom asset better ui config ([bcc676f](https://github.com/getJv/tbox/commit/bcc676f0c0f95cdfbc77560b4afabf2221a51f8a))
+
 ## [1.4.0](https://github.com/getJv/tbox/compare/v1.3.1...v1.4.0) (2026-07-14)
 
 
