@@ -39,7 +39,7 @@ type JobHandler func(ctx context.Context, payload string) error
 // Repository defines queue persistence operations.
 type Repository interface {
 	// Enqueue inserts a new job into the specified queue.
-	Enqueue(ctx context.Context, queueName string, payload string) error
+	Enqueue(ctx context.Context, queueName string, payload []byte) error
 	// PickNextJob atomically finds and marks the next available job as processing.
 	PickNextJob(ctx context.Context, queueName string) (*Job, error)
 	// MarkAsCompleted marks a job as successfully finished.

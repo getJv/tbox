@@ -20,7 +20,7 @@ type fakeRepository struct {
 	markSuccessErr error
 }
 
-func (f *fakeRepository) Enqueue(ctx context.Context, queueName string, payload string) error {
+func (f *fakeRepository) Enqueue(ctx context.Context, queueName string, payload []byte) error {
 	return nil
 }
 

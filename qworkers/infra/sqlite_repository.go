@@ -23,7 +23,7 @@ func NewSQLiteQueueRepository(db *sql.DB) qworkers.Repository {
 }
 
 // Enqueue inserts a new pending job into the database for the specified queue.
-func (r *sqliteRepository) Enqueue(ctx context.Context, queueName string, payload string) error {
+func (r *sqliteRepository) Enqueue(ctx context.Context, queueName string, payload []byte) error {
 	const query = `
 		INSERT INTO queue_jobs (queue_name, payload, status, retries, max_retries, run_at, created_at, updated_at)
 		VALUES (?, ?, ?, 0, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
