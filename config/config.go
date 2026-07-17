@@ -36,10 +36,10 @@ func (c AppConfig) MarshalZerologObject(e *zerolog.Event) {
 		Dur("ShutdownTimeout", c.ShutdownTimeout).
 		Interface("Web", c.Web).
 		Interface("Logger", c.Logger).
-		Str("OpenAIKey", utils.MaskString(c.OpenAI.APIKey())).
-		Str("GoogleClientID", c.Google.ClientID()).
-		Str("GoogleClientSecret", utils.MaskString(c.Google.ClientSecret())).
-		Str("RedirectURL", c.Google.RedirectURL()).
+		Str("OpenAIKey", utils.MaskString(c.OpenAI.APIKey)).
+		Str("GoogleClientID", c.Google.ClientID).
+		Str("GoogleClientSecret", utils.MaskString(c.Google.ClientSecret)).
+		Str("RedirectURL", c.Google.RedirectURL).
 		Str("JWTSecret", utils.MaskString(c.JWTSecret))
 }
 
@@ -50,8 +50,12 @@ func InitConfig() (cfg AppConfig, err error) {
 		envPath = "."
 	}
 
-	_ = godotenv.Load(filepath.Join(envPath, ".env"))
-
+	fullPath := filepath.Join(envPath, ".env")
+	err = godotenv.Load(fullPath)
+	if err != nil {
+		fmt.Printf("Warning: error loading %s: %v\n", fullPath, err)
+	}
+	fmt.Printf("raw OPENAI_API_KEY: %q\n", os.Getenv("OPENAI_API_KEY"))
 	env := os.Getenv("ENVIRONMENT")
 	if env == "" {
 		env = "development"
