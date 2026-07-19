@@ -37,6 +37,8 @@ func (c AppConfig) MarshalZerologObject(e *zerolog.Event) {
 		Interface("Web", c.Web).
 		Interface("Logger", c.Logger).
 		Str("OpenAIKey", utils.MaskString(c.OpenAI.APIKey)).
+		Str("OpenAIBaseURL", c.OpenAI.BaseURL).
+		Str("OpenAIModel", c.OpenAI.Model).
 		Str("GoogleClientID", utils.MaskString(c.Google.ClientID)).
 		Str("GoogleClientSecret", utils.MaskString(c.Google.ClientSecret)).
 		Str("RedirectURL", c.Google.RedirectURL).
