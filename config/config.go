@@ -55,7 +55,7 @@ func InitConfig() (cfg AppConfig, err error) {
 	if err != nil {
 		fmt.Printf("Warning: error loading %s: %v\n", fullPath, err)
 	}
-	fmt.Printf("raw OPENAI_API_KEY: %q\n", os.Getenv("OPENAI_API_KEY"))
+
 	env := os.Getenv("ENVIRONMENT")
 	if env == "" {
 		env = "development"
