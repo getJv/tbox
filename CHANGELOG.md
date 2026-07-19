@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.2](https://github.com/getJv/tbox/compare/v1.4.1...v1.4.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* **logger:** Expose attributes to envConfig ([938c4b4](https://github.com/getJv/tbox/commit/938c4b43448a83b11e8aba6f8290981497e5207f))
+* **qworkers:** Update queue payload to bytes ([3f7bea9](https://github.com/getJv/tbox/commit/3f7bea9809a61dbf05c50f273dd191602da44e0a))
+
 ## [1.4.1](https://github.com/getJv/tbox/compare/v1.4.0...v1.4.1) (2026-07-14)
 
 
