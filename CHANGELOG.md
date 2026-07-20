@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/getJv/tbox/compare/v1.4.2...v1.5.0) (2026-07-20)
+
+
+### Features
+
+* **openai:** add reusable chat-completions client ([21dd3df](https://github.com/getJv/tbox/commit/21dd3df857ec6e2de152edeca743c8f5e65b28de))
+
+
+### Bug Fixes
+
+* **config:** mask GoogleClientID in config output ([35b188b](https://github.com/getJv/tbox/commit/35b188bf15f0356e1eff79c7bb90179c83f51391))
+* **config:** remove sensitive API key logging ([61396fa](https://github.com/getJv/tbox/commit/61396fafe9913f8fca6c8cb71a691cf201186d65))
+
 ## [1.4.2](https://github.com/getJv/tbox/compare/v1.4.1...v1.4.2) (2026-07-19)
 
 
